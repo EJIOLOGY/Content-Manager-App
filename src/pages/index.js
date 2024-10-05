@@ -14,19 +14,32 @@ const geistMono = localFont({
 const a = 100;
 const b = 150;
 function CompA() {
-  return <h1>This is CompA</h1>;
+  return (
+    <div>
+      <h1 className="font-bold">CompA</h1>
+      <p>This is CompA</p>
+      <CompB />
+    </div>
+  );
 }
 
 function CompB() {
-  return <h1>This is CompB</h1>;
+  return (
+    <div>
+      <h1 className="font-bold">CompB</h1>
+      <p>This is CompB</p>
+    </div>
+  );
 }
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello World, This is a comeback to NextJS</h1>
+      <h1 className="font-bold underline">
+        Hello World, This is a comeback to NextJS his comes with an extensive
+        design plan
+      </h1>
       <CompA />
-      <CompB />
     </div>
   );
 }
