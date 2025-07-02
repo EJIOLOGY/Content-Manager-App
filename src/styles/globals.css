@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -15,7 +13,7 @@
 }
 
 body {
-  padding: 100px;
+  /* padding: 100px; */
   margin: auto;
   color: var(--foreground);
   background: var(--background);
@@ -26,4 +24,40 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.resource-form {
+  margin-top: 100px;
+}
+
+.active-resource {
+  background-color: #3140aa;
+  color: white;
+  padding: 50px;
+  text-align: center;
+  height: 300px;
+}
+
+.active-resource .resource-name {
+  font-size: 30px;
+  height: 50px;
+}
+
+.active-resource .elapsed-time {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.active-resource .time-wrapper {
+  height: 100px;
+}
+
+.resource-complete {
+  background-color: #2a9d6d;
+}
+.resource-inactive {
+  background-color: #fdd369;
+}
+.resource-active {
+  background-color: rgb(78, 202, 255);
 }

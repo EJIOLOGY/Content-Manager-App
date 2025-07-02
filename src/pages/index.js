@@ -1,36 +1,28 @@
-import { ClientPageRoot } from "next/dist/client/components/client-page";
-import React from "react";
+import NavBar from "components/NavBar";
+import ResourceHighlight from "components/ResourceHighlight";
+import Newsletter from "components/Newsletter";
+import ResourceList from "components/ResourceList";
+import Footer from "components/Footer";
 
-const ArrowFunction = () => {
+export default function Home({ resources }) {
   return (
     <>
-      <h1 className="font-bold bg-blue-500">I am arrow function</h1>
+      <NavBar />
+      <ResourceHighlight resources={resources.slice(0, 2)} />
+      <Newsletter />
+      <ResourceList resources={resources.slice(2)} />
+      <Footer />
     </>
   );
-};
-function CompA() {
-  return (
-    <div>
-      <ArrowFunction />
-      <h1 className="font-bold">CompA</h1>
-      <p>This is CompA</p>
-    </div>
-  );
 }
-class CompC extends React.Component {
-  render() {
-    return <h1 className="font-bold">CompC</h1>;
-  }
-}
-export default function () {
-  return (
-    <>
-      <h1 className="font-bold underline text-3xl">
-        Hello World, This is a comeback to NextJS his comes with an extensive
-        design plan
-      </h1>
-      <CompA />
-      {/* <CompC /> */}
-    </>
-  );
+
+export async function getServerSideProps() {
+  const resData = await fetch(`${process.env.API_URL}/resources`);
+  const data = await resData.json();
+
+  return {
+    props: {
+      resources: data,
+    },
+  };
 }

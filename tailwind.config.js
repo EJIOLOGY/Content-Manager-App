@@ -17,7 +17,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addBase, addComponents, addUtilities, theme }) {
+    require("tailwindcss/plugin")(function ({ addBase, theme }) {
       addBase({
         h1: { fontSize: theme("fontSize.2xl") },
         h2: { fontSize: theme("fontSize.xl") },
